@@ -1,0 +1,6 @@
+{
+  "name": "Sidang Skripsi Zaki Mubarok",
+  "description": "Aplikasi pendukung presentasi sidang skripsi Zaki Mubarok tentang dakwah imersif di Metaverse, dioptimalkan untuk perangkat seluler dan desktop.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
