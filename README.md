@@ -1,46 +1,26 @@
-# Sidang Skripsi Zaki Mubarok - Dakwah Metaverse
+# Sidang Skripsi Zaki Mubarok - Metaverse Dakwah
 
-🎓 **Presentasi Interaktif Sidang Skripsi S1**  
-📍 Tema: *Menghadirkan Dakwah Ke Metaverse: Penggunaan Virtual Reality Dalam Komunikasi Dakwah Modern*
+Aplikasi presentasi interaktif untuk sidang skripsi tentang "Menghadirkan Dakwah Ke Metaverse" dengan fitur-fitur inovatif:
 
-## 🌟 Fitur Utama
+## 🚀 Fitur Utama
 
-✨ **13 Slide Presentasi Dinamis**
-- Cover, Background, Research Focus
-- Methodology, Theory Foundation
-- Potential & Challenges Analysis
-- Strategic Recommendations & Author Bio
+- **Presentasi Interaktif**: Navigasi smooth antar slide dengan keyboard, mouse, atau touch swipe
+- **Simulasi VR Audio**: Dengarkan murottal Quran dari berbagai sumber CDN
+- **Tasbih Digital**: Counter digital dengan suara guidance dan nada spiritual
+- **Buku Tamu Interaktif**: Komentar dan Q&A dari audiens
+- **Responsive Design**: Optimal untuk desktop, tablet, dan mobile
+- **Share Slide**: Bagikan link langsung ke slide tertentu
+- **Fullscreen Mode**: Mode presentasi fullscreen untuk layar besar
 
-🎮 **Interactive Components**
-- 📍 Slide Navigation (Keyboard, Touch, Click)
-- 🎬 Autoplay dengan Kontrol Kecepatan
-- 📱 Responsive Design (Mobile & Desktop)
-- 🔗 Deep Linking (#slide=X)
-- 📤 Shareable Slide Links
+## 📋 Teknologi Stack
 
-🎙️ **VR Audio Simulator**
-- Quran Recitation from Multiple CDNs
-- 3 Immersive Scenarios (Kabah, Isra'Miraj, Shafa-Marwah)
-- Real-time Audio Controls & Fallback Support
+- **Frontend**: React 19 + TypeScript
+- **Styling**: Tailwind CSS 4 + Motion/Framer Motion
+- **Build Tool**: Vite 6
+- **Icons**: Lucide React
+- **Audio**: Web Audio API + Speech Synthesis
 
-🧿 **Digital Tasbih**
-- Voice-guided Dhikr with Multiple Modes
-- Spiritual Sound Synthesis
-- Haptic Vibration Support
-- Session History Tracking
-
-💬 **Guestbook & Q&A**
-- Pre-seeded Comments from Faculty
-- Real-time Submission & LocalStorage
-- Slide-specific Feedback
-
-## 🚀 Quick Start
-
-### Prerequisites
-- **Node.js** v16+ (Download from [nodejs.org](https://nodejs.org/))
-- **npm** atau **yarn**
-
-### Installation
+## 🔧 Instalasi & Setup
 
 ```bash
 # Clone repository
@@ -50,167 +30,83 @@ cd zakimubarok
 # Install dependencies
 npm install
 
-# Run development server
+# Development server
 npm run dev
 
-# Open in browser
-# http://localhost:3000
-```
-
-### Build for Production
-
-```bash
+# Build production
 npm run build
 
 # Preview production build
 npm run preview
 ```
 
-## 📁 Project Structure
+Aplikasi akan berjalan di `http://localhost:3000`
 
-```
-.
-├── src/
-│   ├── main.tsx                 # React entry point
-│   ├── App.tsx                  # Main app component
-│   ├── index.css                # Global styles & Tailwind
-│   ├── data.ts                  # Slide content data
-│   ├── types.ts                 # TypeScript interfaces
-│   └── components/
-│       ├── SlideRenderer.tsx     # Slide display logic
-│       ├── Guestbook.tsx        # Comments drawer
-│       ├── TasbihDigital.tsx    # Digital rosary
-│       ├── VRSimulator.tsx      # Audio VR scenarios
-│       └── IconRenderer.tsx     # Icon component
-├── index.html                   # HTML template
-├── vite.config.ts              # Vite configuration
-├── tsconfig.json               # TypeScript config
-├── package.json                # Dependencies
-└── README.md                   # This file
-```
+## 📱 Fitur Navigasi
 
-## 🎨 Customization
+### Keyboard
+- `Arrow Right` / `Space`: Slide berikutnya
+- `Arrow Left`: Slide sebelumnya  
+- `F`: Toggle fullscreen
 
-### Edit Slide Content
-Modify `src/data.ts` untuk mengubah konten slide:
+### Mouse/Touch
+- Klik tombol navigasi
+- Swipe kiri/kanan di mobile
+- Deep linking via `#slide=N` di URL
 
-```typescript
-export const slidesData: SlideItem[] = [
-  {
-    id: 1,
-    title: "Cover",
-    type: "cover",
-    coverData: {
-      title: "Your Title Here",
-      // ...
-    }
-  }
-];
-```
+## 🎯 Slide Structure
 
-### Customize Colors
-Edit `src/index.css` dan `vite.config.ts`:
-- Primary: `#d4af37` (Gold)
-- Background: `#02040a` (Dark Blue)
+1. **Cover** - Judul dan informasi peneliti
+2. **Latar Belakang** - Konteks penelitian
+3. **Fokus Penelitian** - Rumusan masalah
+4. **Metodologi** - Pendekatan penelitian
+5. **Landasan Teori** - Teori yang digunakan
+6. **Potensi Dakwah** - Temuan positif
+7. **Tantangan** - Hambatan implementasi
+8. **Matriks Analisis** - Tabel perbandingan
+9. **Paradigma** - Penutup konseptual
+10. **Rekomendasi** - Saran strategis
+11. **Hadits** - Motivasi spiritual
+12. **Profil Peneliti** - Biodata
+13. **Penutup** - Ending slide
 
-## 🌐 Deployment Options
+## 🌐 Deployment
 
-### Option 1: GitHub Pages
+### Vercel (Recommended)
 ```bash
-# Add to vite.config.ts
-export default {
-  base: '/zakimubarok/',
-  // ...
-}
-
-npm run build
-# Push dist/ folder to gh-pages branch
-```
-
-### Option 2: Vercel (Recommended)
-```bash
-npm i -g vercel
+npm install -g vercel
 vercel
 ```
 
-### Option 3: Netlify
+### GitHub Pages
 ```bash
 npm run build
-# Drag & drop dist/ folder to Netlify
+# Push dist folder ke gh-pages branch
 ```
 
-### Option 4: Docker
+### Docker
 ```dockerfile
-FROM node:18-alpine
+FROM node:20-alpine
 WORKDIR /app
-COPY package*.json ./
-RUN npm install
+COPY package*.json .
+RUN npm ci
 COPY . .
 RUN npm run build
 EXPOSE 3000
 CMD ["npm", "run", "preview"]
 ```
 
-## 📱 Browser Support
+## 📄 Lisensi
 
-- ✅ Chrome 90+
-- ✅ Firefox 88+
-- ✅ Safari 14+
-- ✅ Edge 90+
-- ✅ Mobile browsers (iOS Safari, Chrome Mobile)
+Proyek ini untuk keperluan sidang skripsi. Silakan sesuaikan sesuai kebutuhan.
 
-## 🔧 Tech Stack
-
-- **React** 19.0.1
-- **Vite** 6.2.3
-- **TypeScript** 5.8.2
-- **Tailwind CSS** 4.1.14
-- **Framer Motion** 12.23.24
-- **Lucide React** 0.546.0
-
-## 📖 Keyboard Shortcuts
-
-| Key | Action |
-|-----|--------|
-| `→` / `Space` | Next Slide |
-| `←` | Previous Slide |
-| `F` | Toggle Fullscreen |
-| `1-9` | Jump to Slide |
-
-## 🐛 Troubleshooting
-
-### Audio not playing?
-- Check browser autoplay policy
-- Ensure CORS headers on CDN servers
-- Try switching CDN server in VR Simulator
-
-### Styles not applying?
-```bash
-rm -rf node_modules package-lock.json
-npm install
-npm run dev
-```
-
-### Build errors?
-```bash
-npm run clean
-npm run build
-```
-
-## 📄 License
-
-This project is created for Zaki Mubarok's thesis presentation.  
-All rights reserved © 2026
-
-## 👨‍💼 Author
+## 👤 Penulis
 
 **Zaki Mubarok**  
-📧 zakimubarok13220@gmail.com  
-📱 [@zakii_mubarok_](https://instagram.com/zakii_mubarok_)  
 NIM: 2020.85.11.0036  
 Program Studi: Komunikasi dan Penyiaran Islam  
-Institusi: UII Darullughah Wadda'wah
+Universitas: UII Darullughah Wadda'wah
 
 ---
 
-**Wassalamu'alaikum Warahmatullahi Wabarakatuh** ☪️
+*Last Updated: June 15, 2026*
